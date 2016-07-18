@@ -1,0 +1,33 @@
+Data Sources:
+
+The best place to starting a Chinese restaurant in New Jersey
+definitely needs a complicated statistical model, while in the current
+simplified model only are considered. The following information are
+gathered with different techniques: the population of Chinese in each
+township of New Jersey, the total number of Chinese restaurants in
+each township.
+
+- Department of Labor and Workforce Development of New Jersey made
+public the census of New Jersey Labor force through NJ Labor Market
+Views. The 2010 census is available online
+lwd.dol.state.nj.us/labor/lpa/pub/lmv/lmv_18.pdf, which links to Asian
+alone census
+http://lwd.dol.state.nj.us/labor/lpa/census/2010/sf1/mcd/asianbymcd.
+xls. This is served as the source of distribution of Asian population
+including Chinese in municipalities of New Jersey.
+
+- Total number of Chinese restaurants in each municipality. To get an
+  estimate of total number of Chinese restaurants in each municipality
+  of New Jersey, the foursquare public API is adopted. The key words
+  "Chinese Restaurants" is searched via foursquare near each
+  municipality, and simply the returned number of venues is taken as
+  the total number of Chinese restaurants. In principle, many other
+  information such as the rating of the restaurants, the price scale
+  of the restaurants could be extracted with the foursquare (or Yelp)
+  API, which would add more variables to the current projects. Note
+  this is a rough estimate and could be improved by performing more
+  accurate searches.
+
+
+- Also the way to geometrically categorizing Jersey counties into
+  North, Central, South Jersey is taken from Wikipedia.

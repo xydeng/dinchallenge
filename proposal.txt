@@ -1,0 +1,149 @@
+Title:
+
+Best place to start a Chinese restaurant in New Jersey
+
+Overview
+
+This goal of the current project is to provide the preliminary
+knowledge of where is the best potential place to start a new
+restaurant in New Jersey. For small business starters who would like
+to a new restaurant, deciding where to start their business is always
+difficult. The main concern is the customer base, and intuitively, one
+would hypothesize that the number of the restaurants of a certain type
+correlates with the corresponding type of populations: likely more
+Chinese restaurants are to be found in place with more Chinese
+populations; if a town or county with large Korea people but with a
+relative less Korea restaurants, it would likely be a good place to
+start a Korea restaurants. The project is aimed to justify this
+hypothesis and provide a framework to find potential good places for
+new restaurants.  Starting a small business is an important
+life-changing decision to make, so any suggestions with realistic data
+would likely to help. As an example, Chinese restaurants of New Jersey
+are focused.
+
+
+Data Sources:
+
+The best place to starting a Chinese restaurant in New Jersey
+definitely needs a complicated statistical model, while in the current
+simplified model only are considered. The following information are
+gathered with different techniques: the population of Chinese in each
+township of New Jersey, the total number of Chinese restaurants in
+each township.
+
+- Department of Labor and Workforce Development of New Jersey made
+public the census of New Jersey Labor force through NJ Labor Market
+Views. The 2010 census is available online
+lwd.dol.state.nj.us/labor/lpa/pub/lmv/lmv_18.pdf, which links to Asian
+alone census
+http://lwd.dol.state.nj.us/labor/lpa/census/2010/sf1/mcd/asianbymcd.
+xls. This is served as the source of distribution of Asian population
+including Chinese in municipalities of New Jersey.
+
+- Total number of Chinese restaurants in each municipality. To get an
+  estimate of total number of Chinese restaurants in each municipality
+  of New Jersey, the foursquare public API is adopted. The key words
+  "Chinese Restaurants" is searched via foursquare near each
+  municipality, and simply the returned number of venues is taken as
+  the total number of Chinese restaurants. In principle, many other
+  information such as the rating of the restaurants, the price scale
+  of the restaurants could be extracted with the foursquare (or Yelp)
+  API, which would add more variables to the current projects. Note
+  this is a rough estimate and could be improved by performing more
+  accurate searches.
+
+
+- Also the way to geometrically categorizing Jersey counties into
+  North, Central, South Jersey is taken from Wikipedia.
+
+Methodology Plan:
+
+The following two issues must be modeled in order to achieve the goal
+of this project:
+
+- Is the hypothesis, that the total number of Chinese restaurants
+  correlates with the population of Chinese in a specific location,
+  reasonable. To check this hypothesis, an ordinary linear regression
+  is to be carried out with the number of population of Chines as
+  regressor and the number of Chinese restaurants as
+  response. Depending on the data, one need to choose the scale of
+  location widely. For example, one has the choice to focus on
+  municipality level or on the county level. Since in reality
+  different locations might be adjacent geometrically, so that the
+  crowd of a small town could be satisfied by the restaurants located
+  in a nearby location. In this study it is found county is likely a
+  good choice for this crude study. For a more accurate analysis, one
+  might need more details on the distributions of the restaurants and
+  relevant populations.
+
+
+- If the hypothesis is reasonable, decide the potential candidates for
+  starting a Chinese restaurants. The indicator could be ranked by the
+  residue of the linear regression fit of each place.
+
+- Depending on the data, one could study further how geometry affects
+  the linear regression. The population of a specific group normally
+  prefers a few places. For example, Chinese tends to populate in
+  Central Jersey. By categorizing each municipality/county
+  geometrically, the hypothesis could be reexamined in different
+  groups, which will provide hints on the effects of geometrical
+  factors.
+
+Exploratory Data Analysis:
+
+As this step, in total 567 municipalities are identified from the New
+Jersey Census, and the total number of Chinese restaurants in each
+municipality in this study is fetched online via the foursquare
+API. Note that at this stage the foursquare API with userless access
+does not return the exact or up-to-date information. However at the
+time being it is assumed that the values are relatively correct. This
+crude estimate can be easily improved once more accurate information
+is viable from foursquare API. 
+
+The first plot shows that the ordinary linear regression analysis for
+all corresponding data (total number of Chinese Restaurants and the
+population of Chines in each county). The result shows that the
+correlation between the total number of Chinese restaurants and with
+the population of Chinese is significant (top panel). Note it is found
+that the linear regression on the municipality level does not exhibit
+a significant correlation, likely because that many of the 567
+municipalities are small so that significant fluctuations are in the
+number of restaurants. The residue of the ordinary linear regression
+is depicted in the bottom panel, which shows that counties like
+Middlesex and Somerset are in need of more Chinese restaurants.
+
+The second plot shows that the ordinary linear regression analysis
+with the same data above but considering the geometrical factor. The
+total 21 counties are grouped into three categories (North Jersey,
+Central Jersey, South Jersey) according to their geometrical
+locations. The motivation of this study is that in the first plot it
+seems that the counties in Central Jersey are in need for more Chinese
+restaurants. The results are quite interesting. The figure clearly
+shows the effect of the geometrical factor are crucial. For North
+Jersey, the above hypothesis holds nicely, and the situation is
+similar in South Jersey except that the Chinese population in the
+South Jersey are quite low. Interestingly the linear regression
+coefficient for the North Jersey and South Jersey fits are not far
+away, implying likely a common scale between the number of restaurant
+and the population. However the data for the Central Jersey deviates
+from this linear behavior, showing a very different behavior.  In
+fact, the regression model for Central Jersey is very bad and the
+coefficient of population is insignificant. The cause of this unique
+behavior is yet to be examined in a more careful study with better
+data source. If this conclusion is true, this likely indicates that
+that more Chinese restaurants are needed in Central Jersey.
+
+
+Conclusions:
+
+Working on this project in less than two days is already a very
+valuable experience for me. It is actually challenging and
+interesting. I started from knowing nothing about pandas and internet
+API and I am glad that I have made possible the project from a very
+simple idea with a lot of efforts. I appreciate the power of data
+science in realistic life even more with this nice
+experience. Doubtlessly I am excited to learn all the techniques on
+data mining and analysis with possible guidance from experts and other
+fellows, and study more projects in realistic life.
+
+
